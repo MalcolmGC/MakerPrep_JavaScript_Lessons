@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>addElementsToDOM</title>
+  <script src="../jquery-2.1.1.js"></script>
+</head>
+<body>
+  <div id="mainDiv">
+    <h1>How to addElementsToDOM with JS and JQ.</h1>
+    <div id="divJS">
+      <h2 id="h2JS">How to addElementsToDOM with JS.</h2>
+      <p id="pJS1">This is an html paragraph.</p>
+      <p id="pJS2">This is another html paragraph.</p>
+    </div>
+    <div id="divJQ">
+      <h2 id="h2JQ">How to addElementsToDOM with JQ.</h2>
+      <p id="pJQ1">HTML text - replaced when jQ is available.</p>
+      <p id="pJQ2">This is an html paragraph.</p>
+      <p id="pJQ3">This is another html paragraph.</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("h2JS").appendChild(document.createElement("p").appendChild(document.createTextNode("  -- ?? Why isn't this a new paragraph?")));
+   document.getElementById("divJS").appendChild(document.createElement("p").appendChild(document.createTextNode("This is an added new paragrah created with JS.")));
+   document.getElementById("divJS").appendChild(document.createElement("p").appendChild(document.createTextNode("  -- ?? Why isn't this another added new paragrah created with JS.")));
+   document.getElementById("divJS").insertBefore(document.createElement("p").appendChild(document.createTextNode("This is an inserted new paragrah created with JS.")), document.getElementById("pJS2"));
+  ///////////////////////////////////////////////////
+  $('#pJQ1').text('jQ is available.');
+  $('#h2JQ').append('<p>I am a new JQ paragraph.</p>'); // <h2>.append
+  $("#divJQ").append("<p>This is an added new paragrah created with JQ.</p>"); // <div>.append
+  $("#divJQ #pJQ2").before("<p>This is an inserted new paragrah created with JQ.");
+  </script>
+</body>
+</html>
